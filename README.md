@@ -38,9 +38,6 @@ Go to the `group_vars` folder . You will find the variables.
 
 
 ````
----
-# defaults file for ansible-manage-ssh-keys
-enable_manage_ssh_keys: false  #defines if remote ssh keys should be managed
 
 manage_ssh_keys:
   - remote_user: foo #define username on remote system to add defined keys to
