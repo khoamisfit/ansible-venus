@@ -1,0 +1,8 @@
+---
+- hosts: ubuntu
+  user: vagrant
+  gather_facts: true
+  sudo: true
+
+  roles:
+    - { role: manage-ssh-key }
