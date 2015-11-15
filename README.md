@@ -20,8 +20,7 @@ Go to the `group_vars` . You will find the variables.
 * password - If a hash is provided then that will be used, but otherwise the
   account will be locked
 * groups - a list of supplementary groups for the user.
-* ssh_keys - This should be a list of ssh keys for the user. Each ssh key
-  should be included directly and should have no newlines.
+* ssh_keys - This should be a list of ssh keys for the user.
 
 ```
 # Add or Update user
@@ -51,13 +50,16 @@ Go to the `group_vars` folder . You will find the variables.
 
 #### Role Variables
 
+* remote_user: define username on remote system to add defined keys
+* present: defines if ssh key should be added ( `true` ) or removed ( `false` )
+* ssh_keys: define key(s) to add to remote username
 
 ````
 
 manage_ssh_keys:
-  - remote_user: foo #define username on remote system to add defined keys to
-    present: true  #defines if ssh key should be added or removed
-    ssh_keys:  #define key(s) to add to remote username
+  - remote_user: foo
+    present: true
+    ssh_keys:
        - ssh_pub_keys/ubuntu.pub
        - ssh_pub_keys/centos.pub
 
