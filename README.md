@@ -13,6 +13,16 @@ Go to the `group_vars` . You will find the variables.
 
 #### Role Variables
 
+* username - The user's username.
+* name - The full name of the user (gecos field)
+* uid - The numeric user id for the user. This is required for uid consistency
+  across systems.
+* password - If a hash is provided then that will be used, but otherwise the
+  account will be locked
+* groups - a list of supplementary groups for the user.
+* ssh_keys - This should be a list of ssh keys for the user. Each ssh key
+  should be included directly and should have no newlines.
+
 ```
 # Add or Update user
 
