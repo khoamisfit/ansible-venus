@@ -7,19 +7,19 @@
   sudo: false
   with_subelements:
     - manage_ssh_keys
-    - keys
+    - ssh_keys
   when: (manage_ssh_keys is defined and (item[1] is defined and item[1] != '' and item[1] != none))
 
 - name: manage_ssh_keys | adding ssh user keys
   authorized_key: user={{ item[0].remote_user }} key="{{ lookup('file', 'item[1]') }}" state=present
   with_subelements:
     - manage_ssh_keys
-    - keys
+    - ssh_keys
   when: (item[1] is defined and (item[1] != '' and item[1] != none) and (item[0].present is defined and item[0].present))
 
 - name: manage_ssh_keys | removing ssh user keys
   authorized_key: user={{ item[0].remote_user }} key="{{ lookup('file', 'item[1]') }}" state=absent
   with_subelements:
     - manage_ssh_keys
-    - keys
+    - ssh_keys
   when: (item[1] is defined and (item[1] != '' and item[1] != none) and (item[0].present is defined and not item[0].present))

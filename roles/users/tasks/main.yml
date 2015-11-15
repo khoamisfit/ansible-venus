@@ -24,10 +24,10 @@
   tags: ['users','configuration']
 
 - name: SSH keys
-  authorized_key: user="{{item.0.username}}" key="{{item.1}}"
+  authorized_key: user="{{item.0.username}}" key="{{ lookup('file', 'item.1') }}"
   with_subelements:
     - users
-    - ssh_key
+    - ssh_keys
   tags: ['users','configuration']
 
 - name: Deleted user removal

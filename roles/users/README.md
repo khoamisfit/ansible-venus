@@ -30,7 +30,7 @@ The following attributes are required for each user:
 * password - If a hash is provided then that will be used, but otherwise the
   account will be locked
 * groups - a list of supplementary groups for the user.
-* ssh-key - This should be a list of ssh keys for the user. Each ssh key
+* ssh_keys - This should be a list of ssh keys for the user. Each ssh key
   should be included directly and should have no newlines.
 
 In addition, the following items are optional for each user:
@@ -47,7 +47,7 @@ Example:
         name: Foo Barrington
         groups: ['wheel','systemd-journal']
         uid: 1001
-        ssh_key:
+        ssh_keys:
           - "ssh-rsa AAAAA.... foo@machine"
           - "ssh-rsa AAAAB.... foo2@machine"
     users_deleted:
