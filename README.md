@@ -5,14 +5,13 @@ We have two roles:
 * users: Manage users ( Add, Delete, Update ).
 * manage-ssh-key: Manage ssh keys.
 
-# How to use user role:
+# How to use:
 
 ## users role:
 
 Go to the `roles/users/defauls` . You will find the variables.
 
-Role Variables
---------------
+### Role Variables
 
 ```
 # Add or Update user
@@ -35,8 +34,7 @@ users_deleted:
 
 Go to the `roles/users/defauls` folder . You will find the variables.
 
-Role Variables
---------------
+###Role Variables
 
 
 ````
@@ -57,4 +55,5 @@ manage_ssh_keys:
        - ssh_pub_keys/centos.pub
 
 ````
+
 
