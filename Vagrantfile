@@ -12,11 +12,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     app.vm.network :private_network, ip: "192.168.60.4"
   end
 
-  # Application server 2.
-  # config.vm.define "client01" do |app|
-  #   app.vm.hostname = "centos65"
-  #   app.vm.box = "puphpet/centos65-x64"
-  #   app.vm.network :private_network, ip: "192.168.60.5"
-  # end
+
+  config.vm.define "centos" do |app|
+    app.vm.hostname = "centos"
+    app.vm.box = "centos/7"
+    app.vm.network :private_network, ip: "192.168.60.5"
+  end
 
 end

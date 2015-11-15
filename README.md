@@ -9,7 +9,7 @@ We have two roles:
 
 ## users role:
 
-Go to the `roles/users/defauls` . You will find the variables.
+Go to the `group_vars` . You will find the variables.
 
 #### Role Variables
 
@@ -32,7 +32,7 @@ users_deleted:
 ```
 ## manage-ssh-key role:
 
-Go to the `roles/users/defauls` folder . You will find the variables.
+Go to the `group_vars` folder . You will find the variables.
 
 #### Role Variables
 
@@ -56,4 +56,13 @@ manage_ssh_keys:
 
 ````
 
+#### Add SSH key
+
+You can access `roles/manage-ssh-key/files/ssh_pub_keys` to add ssh key. For example: centos.pub or ubuntu.pub
+
+## Run the main playbook
+
+```
+ansible-playbook  -i hosts playbook.yml
+```
 

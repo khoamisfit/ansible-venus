@@ -1,9 +1,9 @@
 ---
-- hosts: ubuntu
+- hosts: centos
   user: vagrant
   gather_facts: true
   sudo: true
 
   roles:
     - { role: manage-ssh-key }
-    - { role: users }
+    # - { role: users }
