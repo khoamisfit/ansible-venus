@@ -6,3 +6,4 @@ docroot
 *.gz
 .vagrant
 *.log
+dummy
