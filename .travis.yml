@@ -1,0 +1,11 @@
+vlanguage: python
+python:
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+# command to install dependencies
+install:
+  - pip install ansible
+# command to run tests
+script: echo "Hello World"
