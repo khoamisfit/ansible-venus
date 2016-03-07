@@ -1,4 +1,4 @@
-vlanguage: python
+language: python
 python:
   - "2.7"
   - "3.2"
@@ -9,3 +9,10 @@ install:
   - sudo pip install -r requirements.txt
 # command to run tests
 script: echo "Hello World"
+after_success:
+ if ([ "$TRAVIS_BRANCH" == "master" ] || [ ! -z "$TRAVIS_TAG" ]) &&
+      [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    echo "This will deploy!"
+  else
+    echo "This will not deploy!"
+  fi
