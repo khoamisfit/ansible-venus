@@ -8,10 +8,4 @@ install:
 script:
   - echo "Hello World"
   - echo ${TEST}
-after_success:
-   if ([[ "${TRAVIS_BRANCH}" == "master" ]] || [[ ! -z "${TRAVIS_TAG}" ]]) && [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-     echo "This will deploy!"
-     echo ${TRAVIS_TAG}
-   else
-     echo "This will not deploy!"
-   fi
+  - echo ${TRAVIS_TAG}
