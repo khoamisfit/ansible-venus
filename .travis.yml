@@ -2,6 +2,9 @@ language: python
 python:
   - "2.7"
 # command to install dependencies
+env:
+    global:
+        - GITHUB_SECRET_TOKEN=3377cd9431af43f3549dd79d268aaec027f6b7d1
 install:
   - sudo pip install -r requirements.txt
 # command to run tests
