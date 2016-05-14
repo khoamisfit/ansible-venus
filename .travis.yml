@@ -8,9 +8,10 @@ install:
 script:
   - echo "Hello World"
   - echo ${TEST}
+  - echo ${TRAVIS_TAG}
+  - echo ${TRAVIS_BRANCH}
+  - echo ${TRAVIS_REPO_SLUG}
 after_success:
-   if ([[ "${TRAVIS_BRANCH}" == "master" ]] || [[ ! -z "${TRAVIS_TAG}" ]]) && [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-     echo "This will deploy!"
-   else
-     echo "This will not deploy!"
-   fi
+  - "curl -o /tmp/travis-automerge https://raw.githubusercontent.com/cdown/travis-automerge/master/travis-automerge"
+  - "chmod a+x /tmp/travis-automerge"
+  - "BRANCHES_TO_MERGE_REGEX='^green' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=${TRAVIS_REPO_SLUG} /tmp/travis-automerge"
