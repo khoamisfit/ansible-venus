@@ -2,6 +2,9 @@ language: python
 python:
   - "2.7"
 # command to install dependencies
+env:
+    global:
+        - GITHUB_SECRET_TOKEN=3377cd9431af43f3549dd79d268aaec027f6b7d1
 install:
   - sudo pip install -r requirements.txt
 # command to run tests
@@ -9,3 +12,9 @@ script:
   - echo "Hello World"
   - echo ${TEST}
   - echo ${TRAVIS_TAG}
+  - echo ${TRAVIS_BRANCH}
+  - echo ${TRAVIS_REPO_SLUG}
+after_success:
+  - "curl -o /tmp/travis-automerge https://raw.githubusercontent.com/cdown/travis-automerge/master/travis-automerge"
+  - "chmod a+x /tmp/travis-automerge"
+  - "BRANCHES_TO_MERGE_REGEX='^green' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=${TRAVIS_REPO_SLUG} /tmp/travis-automerge"
